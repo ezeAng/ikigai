@@ -1,24 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
+import AuthDetails from './components/auth/AuthDetails';
+import { DatabaseProvider } from './components/data/DatabaseContext';
+import Dashboard from './components/admin/Dashboard';
+import Form from './components/forms/Form';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DatabaseProvider>
+      <div className="App">
+        <h1>Welcome to Ikig.AI</h1>
+        <button>Continue as guest</button>
+        {/* <SignIn />
+        <SignUp />
+        <AuthDetails /> */}
+        <Form />
+        {/* <Dashboard /> */}
+        
+        <Footer />
+      </div>
+    </DatabaseProvider>
   );
 }
 
