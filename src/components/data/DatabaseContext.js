@@ -20,19 +20,12 @@ const DatabaseProvider = ({children}) => {
 
 
     async function addUserStory(payload) {
-        var dummy = {
-            age: "20",
-            email: "",
-            employment_status: "unemployed",
-            first_name: "Pedro",
-            last_name: "Ko",
-            gender: "Male",
-            happiness: false,
-            loves: ["Football", "Sketching", "Italian Food"],
-            skills: ["Drawing", "Football"]
+        try {
+            await addDoc(usersCollectionRef, payload)
+        } catch (error) {
+            console.log(error);
         }
-        console.log("Adding User Story: ", dummy);
-        await addDoc(usersCollectionRef, dummy);
+        
     }
 
     return (
