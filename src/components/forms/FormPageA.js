@@ -59,7 +59,7 @@ const FormPageA = ({ formData, updateFormData}) => {
             required
             id="outlined-required"
             label="Email"
-            value={formData["last_name"]}
+            value={formData["email"]}
             onChange={(e) => updateFormData("email", e.target.value)}
             defaultValue="Email"
           />

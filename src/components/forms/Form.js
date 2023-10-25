@@ -10,6 +10,8 @@ import FormPageSubmit from './FormPageSubmit';
 
 import { DatabaseContext } from '../data/DatabaseContext';
 
+import "../../styles/global.css"
+
 
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
@@ -95,6 +97,8 @@ QontoStepIcon.propTypes = {
 const Form = ({navigateToResults}) => {
 
     const dbContext = useContext(DatabaseContext);
+
+
 
     const formCount = 6;
     const [page, setPage] = useState(0);
@@ -189,15 +193,15 @@ const Form = ({navigateToResults}) => {
                     
                     {page !== formCount - 1 ? 
                         <div className='form-button-bar'>
-                            <Button variant="contained" onClick={movePageBackward}>Back</Button>
-                            <Button variant="contained" onClick={movePageForward}>Next</Button>
+                            <Button size='large' sx={{margin: 3, opacity: 0.8}} variant="contained" onClick={movePageBackward}>Back</Button>
+                            <Button size='large' sx={{margin: 3, opacity: 0.8}} variant="contained" onClick={movePageForward}>Next</Button>
                         </div> 
                     : null}
 
                     {page === formCount - 1 ? 
-                        <div>
-                            <Button variant="contained" onClick={movePageBackward}>Back</Button>
-                            <Button type='submit'>Submit</Button>
+                        <div className='form-button-bar'>
+                            <Button size='large' sx={{margin: 3, opacity: 0.8}} variant="contained" onClick={movePageBackward}>Back</Button>
+                            <Button size='large' sx={{margin: 3, color: "white", backgroundColor: "green"}} variant="contained" type='submit'>Submit</Button>
                         </div> 
                     : null }
                 </div>

@@ -2,17 +2,27 @@ import React from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 
-const Results = ({results}) => {
+const Results = ({results, showBegin}) => {
   const navigate = useNavigate();
+  
   const navigateToHome = () => {
+    showBegin();
     navigate('/', {replace: true});
   };
 
 
   console.log("Results: ", results);
 
-  const loves = results['loves'].join(',');
-  const skills = results['skills'].join(',');
+  var loves = ["No loved activities"];
+  if (results['loves']) {
+    loves = results['loves'].join(',');
+  }
+
+  var skills = ["No loved activities"];
+  if (results['skills']) {
+    skills = results['skills'].join(',');
+  }
+  
   const help_wanted = results['help_wanted'];
   //Create GPT PRompt
   
