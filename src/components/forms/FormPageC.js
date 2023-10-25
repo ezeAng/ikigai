@@ -5,6 +5,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { motion, AnimatePresence } from "framer-motion";
 
 const FormPageC = ({ formData, updateFormData}) => {
   const sliderStyle = {
@@ -19,14 +20,28 @@ const FormPageC = ({ formData, updateFormData}) => {
     marginBottom: 5,
     justifyContent: 'center',
     alignItems: 'center', }
+
+  const headerStyle = {
+    margin: "auto",
+    marginTop: 2,
+    marginBottom: 1,
+    width: 0.5,
+    height: 100
+  }
   return (
     <div>
+        <motion.div
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
         <div>
-            <h1>Are you happy?</h1>
-            <h3>Keep it simple - listen to you heart.</h3>
+          <Typography sx={headerStyle} variant='h3' fontFamily={'Montserrat'} >Are you happy?</Typography>
+          <Typography sx={headerStyle} variant='h4' fontFamily={'Montserrat'} >Keep it simple - listen to you heart.</Typography>
         </div>
         <Box sx={boxStyle}>
-          <Typography gutterBottom>Happiness check</Typography>
+          <Typography variant='h6' fontFamily={'Montserrat'} gutterBottom>Happiness check</Typography>
           <Box sx={sliderStyle}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Happy?</InputLabel>
@@ -44,6 +59,9 @@ const FormPageC = ({ formData, updateFormData}) => {
           </FormControl>
           </Box>
         </Box>
+        </motion.div>
+        
+        
     </div>
   )
 }

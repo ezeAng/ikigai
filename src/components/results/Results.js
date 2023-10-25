@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 
 const Results = ({results, showBegin}) => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ const Results = ({results, showBegin}) => {
   return (
     <div>Results
       <div>
-          <div>Loading Screen...</div>
+          <div><CircularProgress /></div>
 
           <div>"Knowing yourself is the beginning of all wisdom." - Aristotle.</div>
 

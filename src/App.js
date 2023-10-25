@@ -15,11 +15,15 @@ import Footer from './components/footer/Footer';
 import Results from './components/results/Results';
 import { Button, Typography } from '@mui/material';
 
+import { motion, AnimatePresence } from "framer-motion";
+
 function App() {
 
   const navigate = useNavigate();
   const [results, setResults] = useState({});
   const [showBeginBtn, setShowBeginBtn] = useState(true);
+
+  const [showHeader, setShowHeader] = useState(true);
 
   const [showForm, setShowForm] = useState(false);
 
@@ -31,16 +35,18 @@ function App() {
   };
 
   const handleBegin = () => {
+    setShowHeader(false);
     setShowForm(true)
     setShowBeginBtn(false);
   }
 
   const returnToHome = () => {
+    setShowHeader(true);
     setShowBeginBtn(true);
   }
 
   const beginBtnStyle = {
-    
+    display: showBeginBtn ? "block" : "none",
     backgroundColor: "#9f4216",
     opacity: 0.85,
     transition: 'transform 0.5s ease-in-out',
@@ -50,6 +56,11 @@ function App() {
       transition: 'transform 1s ease-in-out',
       backgroundColor: '#9f4216',
       boxShadow: 'none',
+    },
+    '&.hidden': {
+      opacity: 0,
+      transform: 'scale(0.95)',
+      transition: 'transform 1s ease-out, opacity 0.2s ease-out', // Smooth transition with ease-out timing function when disappearing
     },
     borderRadius: 15,
     color: "black",
@@ -70,16 +81,26 @@ function App() {
   return (
     <DatabaseProvider>
       <div className="App">
-        <Typography sx={headerStyle} variant='h1' fontFamily={'Montserrat'} >Welcome to Ikig.AI</Typography>
-        <Typography variant='h3' fontFamily={'Montserrat'} >Begin your self-discovery journey here.</Typography>
+      <AnimatePresence>
+        {showHeader && (
+          <motion.header
+            initial={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.6}}
+          >
+            <Typography sx={headerStyle} variant='h1' fontFamily={'Montserrat'} >Welcome to Ikig.AI</Typography>
+            <Typography variant='h3' fontFamily={'Montserrat'} >Begin your self-discovery journey here.</Typography>
+          </motion.header>
+        )}
+      </AnimatePresence>
+      <Button sx={beginBtnStyle} onClick={handleBegin} ><Typography variant='h3' fontFamily={'Montserrat'} >Begin</Typography></Button>
+      <Routes>
+        <Route path="/" element={<Form showBegin={returnToHome} showHeader={showHeader} navigateToResults={navigateToResults} />} />
+        {/* {showForm ? <Route path="/" element={<Form navigateToResults={navigateToResults} />} /> : null} */}
+        <Route path="/results" element={<Results results={results} showBegin={returnToHome} />} />
+      </Routes>
 
-        {showBeginBtn ? <Button sx={beginBtnStyle} onClick={handleBegin} ><Typography variant='h3' fontFamily={'Montserrat'} >Begin</Typography></Button> : null}
-        <Routes>
-          {showForm ? <Route path="/" element={<Form navigateToResults={navigateToResults} />} /> : null}
-          <Route path="/results" element={<Results results={results} showBegin={returnToHome} />} />
-        </Routes>
-
-        <Footer />
+      <Footer />
       </div>
     </DatabaseProvider>
   );

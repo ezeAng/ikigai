@@ -7,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { motion, AnimatePresence } from "framer-motion";
 
 const FormPageA = ({ formData, updateFormData}) => {
   const inputStyle = {
@@ -21,15 +22,29 @@ const FormPageA = ({ formData, updateFormData}) => {
     marginBottom: 3,
     justifyContent: 'center',
     alignItems: 'center', }
+
+  const headerStyle = {
+    margin: "auto",
+    marginTop: 2,
+    marginBottom: 1,
+    width: 0.5,
+    height: 100
+  }
    
   return (
     <div>
-        <div>
-          <h1>Personal Information</h1>
-          <h2>Lets get to know you!</h2>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div>
+            <Typography sx={headerStyle} variant='h3' fontFamily={'Montserrat'} >Personal Information</Typography>
+            <Typography sx={headerStyle} variant='h4' fontFamily={'Montserrat'} >Lets get to know you!</Typography>
+          </div>
         <Box sx={boxStyle}>
-          <Typography gutterBottom>First Name</Typography>
+          <Typography fontFamily={'Montserrat'} gutterBottom>First Name</Typography>
           <TextField
             fullWidth
             required
@@ -41,7 +56,7 @@ const FormPageA = ({ formData, updateFormData}) => {
           />
         </Box>
         <Box sx={boxStyle}>
-          <Typography gutterBottom>Last Name</Typography>
+          <Typography fontFamily={'Montserrat'} gutterBottom>Last Name</Typography>
           <TextField
             fullWidth
             required
@@ -53,7 +68,7 @@ const FormPageA = ({ formData, updateFormData}) => {
           />
         </Box>
         <Box sx={boxStyle}>
-          <Typography gutterBottom>Email</Typography>
+          <Typography fontFamily={'Montserrat'} gutterBottom>Email</Typography>
           <TextField
             fullWidth
             required
@@ -64,6 +79,9 @@ const FormPageA = ({ formData, updateFormData}) => {
             defaultValue="Email"
           />
         </Box>
+
+        </motion.div>
+        
     </div>
   )
 }

@@ -7,6 +7,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+import { motion, AnimatePresence } from "framer-motion";
+
 const FormPageB = ({ formData, updateFormData}) => {
   const sliderStyle = {
     display: 'flex',
@@ -20,14 +22,29 @@ const FormPageB = ({ formData, updateFormData}) => {
     marginBottom: 5,
     justifyContent: 'center',
     alignItems: 'center', }
+  
+    const headerStyle = {
+      margin: "auto",
+      marginTop: 2,
+      marginBottom: 1,
+      width: 0.5,
+      height: 100
+    }
   return (
-    <div>
+  
+    <motion.div
+      initial={{ opacity: 0, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div>
         <div>
-          <h1>Personal Information</h1>
-          <h2>A little more...</h2>
+          <Typography sx={headerStyle} variant='h3' fontFamily={'Montserrat'} >Personal Information</Typography>
+          <Typography sx={headerStyle} variant='h4' fontFamily={'Montserrat'} >A little more...</Typography>
         </div>
         <Box sx={boxStyle}>
-          <Typography gutterBottom>Age</Typography>
+          <Typography fontFamily={'Montserrat'} gutterBottom>Age</Typography>
           <Slider
             sx={sliderStyle}
             defaultValue={21}
@@ -37,7 +54,7 @@ const FormPageB = ({ formData, updateFormData}) => {
             onChange={(e) => updateFormData("age", e.target.value)} />
         </Box>
         <Box sx={boxStyle}>
-          <Typography gutterBottom>Gender</Typography>
+          <Typography fontFamily={'Montserrat'} gutterBottom>Gender</Typography>
           <Box sx={sliderStyle}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Gender</InputLabel>
@@ -55,10 +72,9 @@ const FormPageB = ({ formData, updateFormData}) => {
             </Select>
           </FormControl>
           </Box>
-          
         </Box>
         <Box sx={boxStyle}>
-          <Typography gutterBottom>Employment Status</Typography>
+          <Typography fontFamily={'Montserrat'} gutterBottom>Employment Status</Typography>
           <Box sx={sliderStyle}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Employment</InputLabel>
@@ -78,13 +94,12 @@ const FormPageB = ({ formData, updateFormData}) => {
             </Select>
           </FormControl>
           </Box>
-          
         </Box>
-        
-        {/* <input type='text' placeholder={"Nationality"} value={formData["nationality"]} onChange={(e) => updateFormData("nationality", e.target.value)}></input>
-        <input type='text' placeholder={"Where do you stay?"} value={formData["place_of_residence"]} onChange={(e) => updateFormData("place_of_residence", e.target.value)}></input> */}
-        
-    </div>
+            
+            {/* <input type='text' placeholder={"Nationality"} value={formData["nationality"]} onChange={(e) => updateFormData("nationality", e.target.value)}></input>
+            <input type='text' placeholder={"Where do you stay?"} value={formData["place_of_residence"]} onChange={(e) => updateFormData("place_of_residence", e.target.value)}></input> */}
+        </div>
+          </motion.div>   
   )
 }
 
