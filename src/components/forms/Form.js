@@ -161,7 +161,6 @@ const Form = ({navigateToResults}) => {
 
   return (
     <div>
-        
         <div>
             <form onSubmit={handleSubmit}>
                 <Stepper sx={{
@@ -170,7 +169,7 @@ const Form = ({navigateToResults}) => {
                     margin: 'auto',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    height: '20vh', // You can adjust the height as needed
+                    height: '10vh', // You can adjust the height as needed
                     }} alternativeLabel activeStep={page} connector={<QontoConnector />}>
                     {steps.map((label) => (
                     <Step key={label}>

@@ -28,6 +28,7 @@ const Results = ({results}) => {
 
   var final_prompt = prompt + prompt_options[help_wanted];
   console.log("Final prompt: ", final_prompt);
+
   //Do the GPT API Call here
 
 
@@ -42,7 +43,7 @@ const Results = ({results}) => {
           <div>"Knowing yourself is the beginning of all wisdom." - Aristotle.</div>
 
           <div><p>Hello {results.first_name ? <span>{results.first_name}</span> : <span>friend</span>}, thank you for waiting.</p></div>
-          <div></div>
+          <div>RESULTS HERE</div>
           <p>Once result retrieved, fade it in</p>
           <Button onClick={navigateToHome}>Home</Button>
       </div>

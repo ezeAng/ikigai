@@ -8,13 +8,13 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 const FormPageB = ({ formData, updateFormData}) => {
-   const sliderStyle = {
+  const sliderStyle = {
     display: 'flex',
     width: 0.3,
     margin: 'auto',
     justifyContent: 'center',
     alignItems: 'center',
-    };
+  };
   const boxStyle = { 
     width: 0.8, display: 'block', margin: 'auto',
     marginBottom: 5,
