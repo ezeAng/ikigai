@@ -50,8 +50,14 @@ const Results = ({results, showBegin}) => {
   var final_prompt = prompt + prompt_options[help_wanted];
 
   useEffect(() => {
-    setInterval(console.log("Mounted Results Page"), 3000);
+    const intervalId = setInterval(() => {
+      console.log("Mounted Results Page");
+    }, 3000);
+  
     getOpenAIResult(final_prompt);
+    // Cleanup the interval on component unmount to avoid memory leaks
+    return () => clearInterval(intervalId);
+    
   }, []);
 
 
