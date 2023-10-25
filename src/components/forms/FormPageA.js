@@ -52,7 +52,7 @@ const FormPageA = ({ formData, updateFormData}) => {
             label="First name"
             value={formData["first_name"]}
             onChange={(e) => updateFormData("first_name", e.target.value)}
-            defaultValue="First name"
+            
           />
         </Box>
         <Box sx={boxStyle}>
@@ -64,7 +64,7 @@ const FormPageA = ({ formData, updateFormData}) => {
             label="Last name"
             value={formData["last_name"]}
             onChange={(e) => updateFormData("last_name", e.target.value)}
-            defaultValue="Last name"
+            
           />
         </Box>
         <Box sx={boxStyle}>
@@ -76,7 +76,7 @@ const FormPageA = ({ formData, updateFormData}) => {
             label="Email"
             value={formData["email"]}
             onChange={(e) => updateFormData("email", e.target.value)}
-            defaultValue="Email"
+            
           />
         </Box>
 

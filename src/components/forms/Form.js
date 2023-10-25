@@ -137,11 +137,7 @@ const Form = ({showBegin, navigateToResults, showHeader}) => {
 
     const setFormData = (target, val) => {
         var newData = {...data};
-        if (target === "skills" || target === "loves") {
-            newData[target] = [val];
-        } else {
-            newData[target] = val;
-        }
+        newData[target] = val;
         setData(newData);
     }
 

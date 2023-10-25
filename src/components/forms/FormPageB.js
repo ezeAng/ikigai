@@ -47,7 +47,7 @@ const FormPageB = ({ formData, updateFormData}) => {
           <Typography fontFamily={'Montserrat'} gutterBottom>Age</Typography>
           <Slider
             sx={sliderStyle}
-            defaultValue={21}
+            
             aria-label="Default"
             value={formData['age']}
             valueLabelDisplay="auto"

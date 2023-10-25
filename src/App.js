@@ -2,10 +2,8 @@ import './App.css';
 import './styles/global.css'
 import '@fontsource/montserrat';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import SignIn from './components/auth/SignIn';
-import SignUp from './components/auth/SignUp';
-import AuthDetails from './components/auth/AuthDetails';
+import { useState } from 'react';
+
 import Dashboard from './components/admin/Dashboard';
 
 import { DatabaseProvider } from './components/data/DatabaseContext';
@@ -57,11 +55,6 @@ function App() {
       backgroundColor: '#9f4216',
       boxShadow: 'none',
     },
-    '&.hidden': {
-      opacity: 0,
-      transform: 'scale(0.95)',
-      transition: 'transform 1s ease-out, opacity 0.2s ease-out', // Smooth transition with ease-out timing function when disappearing
-    },
     borderRadius: 15,
     color: "black",
     margin: "auto",
@@ -96,8 +89,8 @@ function App() {
       <Button sx={beginBtnStyle} onClick={handleBegin} ><Typography variant='h3' fontFamily={'Montserrat'} >Begin</Typography></Button>
       <Routes>
         <Route path="/" element={<Form showBegin={returnToHome} showHeader={showHeader} navigateToResults={navigateToResults} />} />
-        {/* {showForm ? <Route path="/" element={<Form navigateToResults={navigateToResults} />} /> : null} */}
         <Route path="/results" element={<Results results={results} showBegin={returnToHome} />} />
+        <Route path="/dashboard" element={<Dashboard setShowHeader={setShowHeader} setShowBeginBtn={setShowBeginBtn} />} />
       </Routes>
 
       <Footer />
