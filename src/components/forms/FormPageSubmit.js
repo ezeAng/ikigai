@@ -12,15 +12,14 @@ const FormPageSubmit = ({ formData, updateFormData}) => {
   const innerBoxStyle = {
     display: 'flex',
     width: 0.3,
-    
     margin: 'auto',
     justifyContent: 'center',
     alignItems: 'center',
   };
   const boxStyle = { 
     width: 0.8, display: 'block', margin: 'auto',
-    marginTop: 24,
-    marginBottom: 5,
+    marginTop: 10,
+    marginBottom: 0,
     justifyContent: 'center',
     alignItems: 'center', }
 

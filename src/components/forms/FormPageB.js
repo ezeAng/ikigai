@@ -24,11 +24,10 @@ const FormPageB = ({ formData, updateFormData}) => {
     alignItems: 'center', }
   
     const headerStyle = {
+      padding: 2,
       margin: "auto",
-      marginTop: 2,
-      marginBottom: 1,
       width: 0.5,
-      height: 100
+      height: "fit-content"
     }
   return (
   

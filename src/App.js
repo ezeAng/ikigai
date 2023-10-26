@@ -65,9 +65,9 @@ function App() {
 
   const headerStyle = {
     margin: "auto",
-    marginTop: 20,
-    marginBottom: 10,
-    width: 0.5,
+    marginTop: 10,
+    marginBottom: 5,
+    width: "100vw",
     height: 100
   }
   
@@ -82,7 +82,7 @@ function App() {
             transition={{ duration: 0.6}}
           >
             <Typography sx={headerStyle} variant='h1' fontFamily={'Montserrat'} >Welcome to Ikig.AI</Typography>
-            <Typography variant='h3' fontFamily={'Montserrat'} >Begin your self-discovery journey here.</Typography>
+            <Typography variant='h4' fontFamily={'Montserrat'} >Begin your self-discovery journey here.</Typography>
           </motion.header>
         )}
       </AnimatePresence>
@@ -93,8 +93,9 @@ function App() {
         <Route path="/dashboard" element={<Dashboard setShowHeader={setShowHeader} setShowBeginBtn={setShowBeginBtn} />} />
       </Routes>
 
-      <Footer />
+      
       </div>
+      <Footer />
     </DatabaseProvider>
   );
 }

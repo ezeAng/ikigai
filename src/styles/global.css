@@ -1,12 +1,13 @@
 .App {
-
+  transform: scale(1); /* You can adjust the scaling factor as needed */
+  
 }
 
 .buttons {
     background-color: "#9f4216";
     color: "#463a38";
     margin: "auto";
-    margin-top: 20;
+    
     width: 0.5;
     height: 100;
 }
@@ -23,10 +24,11 @@
 }
 
 .form-button-bar {
-    padding: 5px 0;
+    padding: 2px 0;
     text-align: center;
     position: absolute;
-    bottom: 8%;
+    top: 55vh;
+    bottom: 0;
     width: 100%;
 }
 

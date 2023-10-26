@@ -19,16 +19,16 @@ const FormPageA = ({ formData, updateFormData}) => {
   };
   const boxStyle = { 
     width: 0.3, display: 'block', margin: 'auto',
-    marginBottom: 3,
+    marginBottom: 2,
     justifyContent: 'center',
-    alignItems: 'center', }
+    alignItems: 'center'
+  }
 
   const headerStyle = {
+    padding: 2,
     margin: "auto",
-    marginTop: 2,
-    marginBottom: 1,
     width: 0.5,
-    height: 100
+    height: "fit-content"
   }
    
   return (
@@ -40,8 +40,8 @@ const FormPageA = ({ formData, updateFormData}) => {
           transition={{ duration: 0.5 }}
         >
           <div>
-            <Typography sx={headerStyle} variant='h3' fontFamily={'Montserrat'} >Personal Information</Typography>
-            <Typography sx={headerStyle} variant='h4' fontFamily={'Montserrat'} >Lets get to know you!</Typography>
+            <Typography sx={headerStyle} gutterBottom variant='h4' fontFamily={'Montserrat'} >Personal Information</Typography>
+            <Typography sx={headerStyle} gutterBottom variant='h5' fontFamily={'Montserrat'} >Lets get to know you!</Typography>
           </div>
         <Box sx={boxStyle}>
           <Typography fontFamily={'Montserrat'} gutterBottom>First Name</Typography>

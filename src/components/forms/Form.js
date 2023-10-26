@@ -195,6 +195,8 @@ const Form = ({showBegin, navigateToResults, showHeader}) => {
       },
       borderRadius: 15,
       color: "black",
+      marginLeft: 5,
+      marginRight: 5,
       margin: 10,
       marginTop: 20,
       width: 200,
@@ -222,7 +224,7 @@ const Form = ({showBegin, navigateToResults, showHeader}) => {
                     }} alternativeLabel activeStep={page} connector={<QontoConnector />}>
                     {steps.map((label) => (
                     <Step key={label}>
-                        <StepLabel StepIconComponent={QontoStepIcon}><Typography fontSize={16} fontFamily={'Montserrat'}>{label}</Typography></StepLabel>
+                        <StepLabel StepIconComponent={QontoStepIcon}><Typography fontSize={12} fontFamily={'Montserrat'}>{label}</Typography></StepLabel>
                     </Step>
                     ))}
                 </Stepper>
