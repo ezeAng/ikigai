@@ -19,8 +19,7 @@ import { motion, AnimatePresence } from "framer-motion";
 function App() {
 
   console.log(process.env);
-  console.log(process.env.REACT_APP_API_KEY);
-  
+
   const navigate = useNavigate();
   const [results, setResults] = useState({});
   const [showBeginBtn, setShowBeginBtn] = useState(true);
