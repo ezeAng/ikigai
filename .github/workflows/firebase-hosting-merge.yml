@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm ci react-scripts
+      - run: npm i react-scripts
       - run: npm run build
         env:
           CI: ""
