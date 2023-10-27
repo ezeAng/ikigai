@@ -1,22 +1,11 @@
 import React from 'react'
 import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
 import { Typography } from '@mui/material';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const FormPageA = ({ formData, updateFormData}) => {
-  const inputStyle = {
-    display: 'flex',
-    width: 0.3,
-    margin: 'auto',
-    justifyContent: 'center',
-    alignItems: 'center',
-  };
+
   const boxStyle = { 
     width: 0.3, display: 'block', margin: 'auto',
     marginBottom: 2,

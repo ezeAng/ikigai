@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Button from '@mui/material/Button';
 
 import FormPageA from './FormPageA';
@@ -10,7 +10,7 @@ import FormPageSubmit from './FormPageSubmit';
 
 import { DatabaseContext } from '../data/DatabaseContext';
 
-import { motion, AnimatePresence, stagger } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import "../../styles/global.css";
 

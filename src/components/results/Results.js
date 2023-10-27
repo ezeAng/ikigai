@@ -58,7 +58,7 @@ const Results = ({results, showBegin}) => {
     // Cleanup the interval on component unmount to avoid memory leaks
     return () => clearInterval(intervalId);
     
-  }, []);
+  }, [final_prompt]);
 
 
   //Do the GPT API Call here
@@ -118,7 +118,8 @@ const Results = ({results, showBegin}) => {
     color: "black",
     width: 300,
     height: 100,
-    
+    position: "absolute",
+    bottom: "20%"
   }
 
   const btnContStyle = {
