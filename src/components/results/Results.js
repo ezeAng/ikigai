@@ -51,7 +51,7 @@ const Results = ({results, showBegin}) => {
       console.log("Mounted Results Page");
     }, 2000);
   
-    getOpenAIResult(final_prompt).runWith();
+    getOpenAIResult(final_prompt);
     // Cleanup the interval on component unmount to avoid memory leaks
     return () => clearInterval(intervalId);
     
