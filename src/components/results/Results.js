@@ -6,12 +6,7 @@ import { PuffLoader } from 'react-spinners';
 
 import { OpenAI } from 'openai';
 
-const apiKey = process.env.REACT_APP_API_KEY;
-
-const openai = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true});
-
-
-
+const openai = new OpenAI({apiKey: process.env.REACT_APP_API_KEY, dangerouslyAllowBrowser: true});
 
 const Results = ({results, showBegin}) => {
   const navigate = useNavigate();
@@ -21,6 +16,7 @@ const Results = ({results, showBegin}) => {
   };
 
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
   const [finalRes, setFinalRes] = useState('');
 
 
@@ -50,15 +46,16 @@ const Results = ({results, showBegin}) => {
   var final_prompt = prompt + prompt_options[help_wanted];
 
   useEffect(() => {
+
     const intervalId = setInterval(() => {
       console.log("Mounted Results Page");
-    }, 3000);
+    }, 2000);
   
-    getOpenAIResult(final_prompt);
+    getOpenAIResult(final_prompt).runWith();
     // Cleanup the interval on component unmount to avoid memory leaks
     return () => clearInterval(intervalId);
     
-  }, [final_prompt]);
+  }, []);
 
 
   //Do the GPT API Call here
@@ -78,6 +75,8 @@ const Results = ({results, showBegin}) => {
       return completion;
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
+      setHasError(true);
       return null;
     }
   }

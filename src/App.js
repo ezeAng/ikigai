@@ -15,7 +15,9 @@ import { Button, Typography } from '@mui/material';
 
 import { motion, AnimatePresence } from "framer-motion";
 
+
 function App() {
+
 
   const navigate = useNavigate();
   const [results, setResults] = useState({});
