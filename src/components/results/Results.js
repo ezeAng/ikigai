@@ -90,7 +90,7 @@ const Results = ({results, showBegin}) => {
     margin: 6,
     display : "block",
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   }
 
   const loaderStyle = {
@@ -118,51 +118,25 @@ const Results = ({results, showBegin}) => {
     width: 300,
     height: 100,
     position: "absolute",
-    bottom: "20%"
+    
   }
 
   const btnContStyle = {
     width: "100vw",
     position: "absolute",
-    bottom: "20%"
+    bottom: 0
   }
 
   return (
     <div>
       <div>
-        <Box sx={loaderStyle} className='loader'>
-          <PuffLoader
-            loading={isLoading}
-            color="black"
-            cssOverride={{}}
-            size={360}
-            speedMultiplier={0.7}
-          />
-          </Box>
-          <Box sx={loaderStyle} className='loader'>
-          <PuffLoader
-            loading={isLoading}
-            color="black"
-            cssOverride={{}}
-            size={240}
-            speedMultiplier={0.5}
-          />
-          </Box>
-          <Box sx={loaderStyle} className='loader'>
-          <PuffLoader
-            loading={isLoading}
-            color="black"
-            cssOverride={{}}
-            size={120}
-            speedMultiplier={0.3}
-          />
-          </Box>
+        
       
-        <Typography variant="h3" sx={resultStyle} fontFamily={"montserrat"} >"Knowing yourself is the beginning of all wisdom."</Typography>
-        <Typography variant="h4" sx={resultStyle} fontFamily={"montserrat"} gutterBottom>- Aristotle.</Typography>
+        <Typography variant="h4" sx={resultStyle} fontFamily={"montserrat"} >"Knowing yourself is the beginning of all wisdom."</Typography>
+        <Typography variant="h5" sx={resultStyle} fontFamily={"montserrat"} gutterBottom>- Aristotle.</Typography>
         <Box className='results-chat-reply'>
-          <Typography variant="h4" sx={resultStyle} fontFamily={"montserrat"} gutterBottom>Hello {results.first_name ? <span>{results.first_name}</span> : <span>friend</span>}, thank you for waiting.</Typography>
-          <Typography sx={resultStyle} fontFamily={"montserrat"} >{finalRes ? finalRes : null }</Typography>
+          <Typography variant="h6" sx={resultStyle} fontFamily={"montserrat"} gutterBottom>Hello {results.first_name ? <span>{results.first_name}</span> : <span>friend</span>}, thank you for waiting.</Typography>
+          <Typography sx={resultStyle} fontSize={12} fontFamily={"montserrat"} >{finalRes ? finalRes : null }</Typography>
         </Box>
         <Box sx={btnContStyle}>
           <Button sx={homeBtnStyle} onClick={navigateToHome}><Typography sx={resultStyle} fontSize={20} fontFamily={"montserrat"} >Return Home</Typography></Button>

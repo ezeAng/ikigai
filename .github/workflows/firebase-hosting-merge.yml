@@ -14,6 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - name: Test Secrets
+        env:
+          TEST_SECRET: ${{ secrets.OPEN_AI_KEY}}
+        run: |
+          echo ${#TEST_SECRET}
       - uses: actions/checkout@v3
       - run: npm ci react-scripts
       - run: npm run build
