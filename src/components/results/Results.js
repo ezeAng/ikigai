@@ -100,10 +100,11 @@ const Results = ({results, showBegin}) => {
     width: "100vw",
     justifyContent: 'center',
     alignItems: 'center',
-    padding: "2rem"
+    padding: 5
   }
 
   const typographyStyle = {
+    padding: 5,
     fontSize: '1.25rem', // Adjust the font size as needed for readability
     textAlign: 'left',
   };
