@@ -88,6 +88,7 @@ const Results = ({results, showBegin}) => {
 
   const resultHeaderStyle ={
     margin: 6,
+    width: "100vw",
     display : "block",
     justifyContent: 'center',
     alignItems: 'center'
@@ -148,14 +149,15 @@ const Results = ({results, showBegin}) => {
         <Box sx={loaderStyle}>
           <PuffLoader loading={isLoading} />
         </Box>
-        
+        <Box sx={resultHeaderStyle}>
+          {!isLoading ? <Typography variant="h5" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>Hello {results.first_name ? <span>{results.first_name}</span> : <span>friend</span>}, thank you for waiting.</Typography> : null}
+        </Box>
         <Box className='results-chat-reply' sx={resultStyle}>
           {hasError ? <Typography variant="h5" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>There seems to be an error with our service, our engineers are working on it.</Typography> : null}
-          <Typography variant="h6" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>Hello {results.first_name ? <span>{results.first_name}</span> : <span>friend</span>}, thank you for waiting.</Typography>
           <Typography sx={typographyStyle} fontSize={14} fontFamily={"montserrat"} >{finalRes ? finalRes : null }</Typography>
         </Box>
         <Box sx={btnContStyle}>
-          <Button sx={homeBtnStyle} onClick={navigateToHome}><Typography sx={resultStyle} fontSize={20} fontFamily={"montserrat"} >Return Home</Typography></Button>
+          {!isLoading ? <Button sx={homeBtnStyle} onClick={navigateToHome}><Typography sx={resultStyle} fontSize={20} fontFamily={"montserrat"} >Return Home</Typography></Button> : null}
         </Box>
         
       </div>

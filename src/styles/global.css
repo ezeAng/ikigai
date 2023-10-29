@@ -33,13 +33,14 @@
 }
 
 .react-tagsinput {
-    width: 50%;
-    height: 20vh;
+    width: 50vw;
     margin: auto;
     background-color: #ffffff70;
     border: 2px solid #3a3a3a71;
     border-radius: 20px;
-    overflow: hidden;
+    height: fit-content;
+    max-height: 40vh;
+    overflow: scroll;
     padding-left: 5px;
     padding-top: 5px;
   }
@@ -50,7 +51,7 @@
   
   .react-tagsinput-tag {
     background-color: #ec8b6b;
-    border-radius: 2px;
+    border-radius: 10px;
     border: 1px solid #626262;
     color: #ffffff;
     display: inline-block;
@@ -73,7 +74,8 @@
   
   .react-tagsinput-input {
     background: transparent;
-    border: 0;
+    border: 1px solid #242222;
+    border-radius: 10;
     color: #777;
     font-family: montserrat;
     font-size: 24px;
