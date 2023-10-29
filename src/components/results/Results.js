@@ -95,11 +95,12 @@ const Results = ({results, showBegin}) => {
   }
 
   const resultStyle ={
-    margin: 6,
+    margin: "auto",
     display : "block",
-    width: "75vw",
+    width: "100vw",
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: "2rem"
   }
 
   const typographyStyle = {
@@ -150,14 +151,14 @@ const Results = ({results, showBegin}) => {
           <PuffLoader loading={isLoading} />
         </Box>
         <Box sx={resultHeaderStyle}>
-          {!isLoading ? <Typography variant="h5" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>Hello {results.first_name ? <span>{results.first_name}</span> : <span>friend</span>}, thank you for waiting.</Typography> : null}
+          {!isLoading && finalRes ? <Typography variant="h5" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>Hello {results.first_name ? <span>{results.first_name}</span> : <span>friend</span>}, thank you for waiting.</Typography> : null}
         </Box>
         <Box className='results-chat-reply' sx={resultStyle}>
           {hasError ? <Typography variant="h5" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>There seems to be an error with our service, our engineers are working on it.</Typography> : null}
           <Typography sx={typographyStyle} fontSize={14} fontFamily={"montserrat"} >{finalRes ? finalRes : null }</Typography>
         </Box>
         <Box sx={btnContStyle}>
-          {!isLoading ? <Button sx={homeBtnStyle} onClick={navigateToHome}><Typography sx={resultStyle} fontSize={20} fontFamily={"montserrat"} >Return Home</Typography></Button> : null}
+          {!isLoading && finalRes ? <Button sx={homeBtnStyle} onClick={navigateToHome}><Typography sx={resultStyle} fontSize={20} fontFamily={"montserrat"} >Return Home</Typography></Button> : null}
         </Box>
         
       </div>
