@@ -19,7 +19,7 @@ const FormPageB = ({ formData, updateFormData}) => {
   };
   const boxStyle = { 
     width: 0.8, display: 'block', margin: 'auto',
-    marginBottom: 5,
+    marginBottom: 3,
     justifyContent: 'center',
     alignItems: 'center', }
   

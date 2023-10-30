@@ -12,7 +12,8 @@ import { DatabaseContext } from '../data/DatabaseContext';
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import "../../styles/global.css";
+
+import { btnStyle, submitBtnStyle } from '../../styles/style.js';
 
 
 import PropTypes from 'prop-types';
@@ -23,6 +24,8 @@ import StepLabel from '@mui/material/StepLabel';
 import Check from '@mui/icons-material/Check';
 import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
 import { Typography } from '@mui/material';
+
+//-- MUI connector --
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -95,13 +98,11 @@ QontoStepIcon.propTypes = {
    */
   completed: PropTypes.bool,
 };
-
+//-- MUI connector --
 
 const Form = ({showBegin, navigateToResults, showHeader}) => {
 
     const dbContext = useContext(DatabaseContext);
-
-
 
     const formCount = 6;
     const [page, setPage] = useState(0);
@@ -162,47 +163,7 @@ const Form = ({showBegin, navigateToResults, showHeader}) => {
       'What you love',
       'What you need'
     ];
-    const btnStyle = {
-      backgroundColor: "#9f4216",
-      opacity: 0.85,
-      transition: 'transform 0.5s ease-in-out',
-      boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
-      '&:hover': {
-        opacity: 1,
-        transform: 'scale(1.05)',
-        transition: 'transform 0.8s ease-in-out',
-        backgroundColor: '#9f4216',
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.5)",
-      },
-      
-      borderRadius: 15,
-      color: "white",
-      margin: 10,
-      marginTop: 20,
-      width: 200,
-      height: 70
-    }
 
-    const submitBtnStyle = {
-      backgroundColor: "#919e97fa",
-      opacity: 0.85,
-      transition: 'transform 0.5s ease-in-out',
-      '&:hover': {
-        opacity: 1,
-        transform: 'scale(1.3)',
-        transition: 'transform 0.5s ease-in-out',
-        backgroundColor: '#919e97fa',
-        boxShadow: 'none',
-      },
-      borderRadius: 15,
-      color: "black",
-      marginLeft: 5,
-      marginRight: 5,
-      margin: 10,
-      marginTop: 20,
-      width: 200,
-      height: 70
-    }
 
   return (
     <div>

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { motion } from "framer-motion";
 import { Typography } from '@mui/material';
 import TagsInput from 'react-tagsinput';
-import '../../styles/global.css';
+
 
 const FormPageE = ({ formData, updateFormData}) => {
   const headerStyle = {

@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Box } from '@mui/material';
 import { Typography } from '@mui/material';
 import { GridLoader } from 'react-spinners';
-import "../../styles/global.css";
-
+import { generalStyles, loaderStyle, resultHeaderStyle, resultStyle, typographyStyle, btnContStyle, homeBtnStyle } from '../../styles/style';
 import { OpenAI } from 'openai';
 
 const openai = new OpenAI({apiKey: process.env.REACT_APP_API_KEY, dangerouslyAllowBrowser: true});
@@ -81,77 +80,11 @@ const Results = ({results, showBegin}) => {
     }
   }
 
-  const resultHeaderStyle ={
-    margin: "auto",
-    marginTop: "1rem",
-    marginBottom: "1rem",
-    width: "100vw",
-    display : "block",
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-
-  const resultStyle ={
-    margin: "auto",
-    marginBottom: "1rem",
-    width: "80vw",
-    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)', // light shadow for a hovering effect
-    borderRadius: '20px', // rounded corners
-    padding: '1rem',
-    display: 'flex',
-    alignItems: 'center', // vertically center the text
-    justifyContent: 'center', // horizontally center the text
-    transition: 'transform 0.3s ease-in-out, boxShadow 0.3s ease-in-out',
-    '&:hover': {
-      transform: 'translateY(-10px)', // move the card up by 10px on hover
-      boxShadow: '0 6px 16px rgba(0, 0, 0, 1)' // increase the shadow to emphasize the hover
-    }
-  }
-
-  const typographyStyle = {
-    padding: 5,
-    fontSize: '1.25rem', // Adjust the font size as needed for readability
-    textAlign: 'left',
-  };
 
 
-  const loaderStyle = {
-    display : "flex",
-    position: "absolute",
-    top: 0,
-    height: "100vh",
-    width: "100vw",
-    justifyContent: 'center',
-    alignItems: 'center',
-    transform: 'scale(2)'
-  }
 
-  const homeBtnStyle = {
-    backgroundColor: "#919e97fa",
-    opacity: 0.85,
-    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-    transition: 'transform 0.5s ease-in-out',
-    '&:hover': {
-      transform: 'translateY(-10px)', // move the card up by 10px on hover
-      boxShadow: '0 6px 16px rgba(0, 0, 0, 0.2)' ,
-      opacity: 1,
-      backgroundColor: '#919e97fa',
-    },
-    borderRadius: 15,
-    color: "black",
-    width: "20rem",
-    height: "6rem"
-  }
-
-  const btnContStyle = {
-    marginTop: "3rem",
-    width: "100vw",
-    position: "relative",
-    bottom: 0
-  }
 
   return (
-    <div>
       <div>
         <Typography variant="h3" sx={resultHeaderStyle} fontFamily={"montserrat"} >"Knowing yourself is the beginning of all wisdom."</Typography>
         <Typography variant="h5" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>- Aristotle.</Typography>
@@ -161,18 +94,16 @@ const Results = ({results, showBegin}) => {
         <Box sx={resultHeaderStyle}>
           {!isLoading && finalRes ? <Typography variant="h5" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>Hello {results.first_name ? <span>{results.first_name}</span> : <span>friend</span>}, thank you for waiting.</Typography> : null}
         </Box>
-        
-        <Box display={(finalRes || hasError) && !isLoading} sx={resultStyle}>
+        {(finalRes || hasError) && !isLoading ? <Box sx={resultStyle}>
           {hasError ? <Typography variant="h5" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>There seems to be an error with our service, our engineers are working on it.</Typography> : null}
           <Typography sx={typographyStyle} fontSize={14} fontFamily={"montserrat"} >{finalRes ? finalRes : null }</Typography>
-        </Box>
+        </Box> : null}
+        
         <Box sx={btnContStyle}>
           {!isLoading && (finalRes || hasError) ? <Button sx={homeBtnStyle} onClick={navigateToHome}><Typography fontSize={24} fontFamily={"montserrat"} >Return Home</Typography></Button> : null}
         </Box>
         
       </div>
-    </div>
-
   )
 }
 

@@ -1,5 +1,4 @@
 import './App.css';
-import './styles/global.css'
 import '@fontsource/montserrat';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -14,6 +13,8 @@ import Results from './components/results/Results';
 import { Button, Typography } from '@mui/material';
 
 import { motion, AnimatePresence } from "framer-motion";
+
+import { generalStyles, headerStyle, beginBtnStyle } from './styles/style';
 
 
 function App() {
@@ -40,34 +41,6 @@ function App() {
     setShowBeginBtn(true);
   }
 
-  const beginBtnStyle = {
-    display: showBeginBtn ? "block" : "none",
-    backgroundColor: "#9f4216",
-    opacity: 0.85,
-    transition: 'transform 0.5s ease-in-out',
-    '&:hover': {
-      opacity: 1,
-      transform: 'scale(1.05)',
-      transition: 'transform 0.8s ease-in-out',
-      backgroundColor: '#9f4216',
-      boxShadow: "0 4px 10px rgba(0, 0, 0, 0.5)"
-    },
-    borderRadius: 15,
-    color: "black",
-    margin: "auto",
-    marginTop: 20,
-    width: 0.4,
-    height: 120,
-    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)"
-  }
-
-  const headerStyle = {
-    margin: "auto",
-    marginTop: 10,
-    marginBottom: 5,
-    width: "100vw",
-    height: 100
-  }
   
   return (
     <DatabaseProvider>
@@ -84,7 +57,8 @@ function App() {
           </motion.header>
         )}
       </AnimatePresence>
-      <Button sx={beginBtnStyle} onClick={handleBegin} ><Typography variant='h3' fontFamily={'Montserrat'} >Begin</Typography></Button>
+      {showBeginBtn ? <Button sx={beginBtnStyle} onClick={handleBegin} ><Typography variant='h3' color={"white"} fontFamily={'Montserrat'} >Begin</Typography></Button> : null}
+      
       <Routes>
         <Route path="/" element={<Form showBegin={returnToHome} showHeader={showHeader} navigateToResults={navigateToResults} />} />
         <Route path="/results" element={<Results results={results} showBegin={returnToHome} />} />
@@ -93,7 +67,9 @@ function App() {
 
       <Footer />
       </div>
-      
+      <div class="error-prompt">
+        <Typography variant='h4' fontFamily={'Montserrat'} >Please view this website on a desktop for the best experience.</Typography>
+      </div>
     </DatabaseProvider>
   );
 }
