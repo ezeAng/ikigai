@@ -36,7 +36,7 @@ To run the Ikigai Web App locally for development or testing purposes, follow th
 2. Navigate to the project directory:
 
    ```bash
-   cd ikigai-webapp
+   cd ikigai_0
    ```
 
 3. Install dependencies:
