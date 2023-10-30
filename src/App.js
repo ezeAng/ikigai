@@ -24,18 +24,14 @@ function App() {
 
   const [showHeader, setShowHeader] = useState(true);
 
-  const [showForm, setShowForm] = useState(false);
-
   const navigateToResults = (data) => {
     setResults(data);
     navigate('/results', {replace: true});
-    setShowForm(false);
     setShowBeginBtn(false);
   };
 
   const handleBegin = () => {
     setShowHeader(false);
-    setShowForm(true)
     setShowBeginBtn(false);
   }
 
@@ -52,16 +48,17 @@ function App() {
     '&:hover': {
       opacity: 1,
       transform: 'scale(1.05)',
-      transition: 'transform 1s ease-in-out',
+      transition: 'transform 0.8s ease-in-out',
       backgroundColor: '#9f4216',
-      boxShadow: 'none',
+      boxShadow: "0 4px 10px rgba(0, 0, 0, 0.5)"
     },
     borderRadius: 15,
     color: "black",
     margin: "auto",
     marginTop: 20,
     width: 0.4,
-    height: 120
+    height: 120,
+    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)"
   }
 
   const headerStyle = {
@@ -94,9 +91,9 @@ function App() {
         <Route path="/dashboard" element={<Dashboard setShowHeader={setShowHeader} setShowBeginBtn={setShowBeginBtn} />} />
       </Routes>
 
-      
-      </div>
       <Footer />
+      </div>
+      
     </DatabaseProvider>
   );
 }

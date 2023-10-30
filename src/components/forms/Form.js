@@ -166,12 +166,13 @@ const Form = ({showBegin, navigateToResults, showHeader}) => {
       backgroundColor: "#9f4216",
       opacity: 0.85,
       transition: 'transform 0.5s ease-in-out',
+      boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
       '&:hover': {
         opacity: 1,
         transform: 'scale(1.05)',
-        transition: 'transform 1s ease-in-out',
+        transition: 'transform 0.8s ease-in-out',
         backgroundColor: '#9f4216',
-        boxShadow: 'none',
+        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.5)",
       },
       
       borderRadius: 15,

@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const FormPageSubmit = ({ formData, updateFormData}) => {
   const innerBoxStyle = {
@@ -21,10 +21,7 @@ const FormPageSubmit = ({ formData, updateFormData}) => {
     marginTop: 10,
     marginBottom: 0,
     justifyContent: 'center',
-    alignItems: 'center', }
-
-  const headStyle = {
-    marginBottom: 2,
+    alignItems: 'center', 
   }
 
   return (
@@ -35,10 +32,10 @@ const FormPageSubmit = ({ formData, updateFormData}) => {
           exit={{ opacity: 0, y: 0 }}
           transition={{ duration: 0.5 }}
       >
-        <Typography variant='h3' sx={headStyle} fontFamily={'Montserrat'} >Ready to discover yourself?</Typography>
+        <Typography variant='h2' sx={{marginTop:4, padding: 4}} fontFamily={'Montserrat'} >Ready to discover yourself?</Typography>
 
         <Box sx={boxStyle}>
-          <Typography variant='h3' fontFamily={'Montserrat'} gutterBottom>I want to seek...</Typography>
+          <Typography variant='h5' fontFamily={'Montserrat'} gutterBottom>I want to seek...</Typography>
           <Box sx={innerBoxStyle}>
             <FormControl fullWidth>
               <InputLabel fontFamily={'Montserrat'} id="demo-simple-select-label">Output</InputLabel>

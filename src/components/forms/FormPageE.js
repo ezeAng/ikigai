@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Typography } from '@mui/material';
 import TagsInput from 'react-tagsinput';
 import '../../styles/global.css';
@@ -7,8 +7,7 @@ import '../../styles/global.css';
 const FormPageE = ({ formData, updateFormData}) => {
   const headerStyle = {
     margin: "auto",
-    marginTop: 2,
-    marginBottom: 1,
+    marginTop: 1,
     width: 0.5,
     height: 100
   }
@@ -28,9 +27,8 @@ const FormPageE = ({ formData, updateFormData}) => {
         >
         <div>
           <Typography sx={headerStyle} variant='h3' fontFamily={'Montserrat'} >What do you love?</Typography>
-          <Typography sx={headerStyle} variant='h4' fontFamily={'Montserrat'} >Tell us what you love to do.</Typography>
         </div>
-        <Typography gutterBottom variant='h6' fontFamily={'Montserrat'} >Add up to 5.</Typography>
+        <Typography gutterBottom variant='h6' fontFamily={'Montserrat'} >Tell us what you love to do! Add up to 5.</Typography>
         <TagsInput maxTags={5} className='react-tagsinput' value={formData['loves']} onChange={handleChange} />
         
       </motion.div>

@@ -1,6 +1,9 @@
 .App {
   transform: scale(1); /* You can adjust the scaling factor as needed */
-  
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+  z-index: 1;
 }
 
 .buttons {
@@ -34,30 +37,32 @@
 }
 
 .react-tagsinput {
-    width: 50vh;
+    width: 40vw;
+    height: 30vh;
     margin: auto;
-    background-color: #ffffff70;
+    background-color: #e4deded8;
     border: 2px solid #3a3a3a71;
-    border-radius: 20px;
-    height: fit-content;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) ;
     max-height: 30vh;
     overflow: hidden;
     padding-left: 5px;
     padding-top: 5px;
-  }
+}
   
   .react-tagsinput--focused {
-    border-color: #d2804a;
+    border-color: #545251;
   }
   
   .react-tagsinput-tag {
     background-color: #ec8b6b;
-    border-radius: 10px;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) ;
     border: 1px solid #626262;
     color: #ffffff;
     display: inline-block;
     font-family: montserrat;
-    font-size: 24px;
+    font-size: 1rem;
     font-weight: 400;
     margin-bottom: 5px;
     margin-right: 5px;
@@ -75,16 +80,17 @@
   
   .react-tagsinput-input {
     background: transparent;
-    border: 1px solid #242222;
-    border-radius: 10;
+    border: 1px solid;
+    border-radius: 0.5rem;
     color: #777;
     font-family: montserrat;
-    font-size: 24px;
+    font-size: 1rem;
     font-weight: 400;
-
-    margin: 6px;
-    outline: none;
+    margin: 0.5rem;
     padding: 5px;
+    outline: none;
     width: fit-content;
+    max-width: 20rem;
   }
+
   

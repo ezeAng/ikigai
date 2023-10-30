@@ -5,7 +5,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const FormPageC = ({ formData, updateFormData}) => {
   const sliderStyle = {
@@ -15,18 +15,20 @@ const FormPageC = ({ formData, updateFormData}) => {
     justifyContent: 'center',
     alignItems: 'center',
   };
-  const boxStyle = { 
-    width: 0.8, display: 'block', margin: 'auto',
-    marginBottom: 5,
+  const boxStyle = {
+    display: 'block', 
+    margin: 'auto',
+    marginTop: 3,
+    marginBottom: 3,
     justifyContent: 'center',
     alignItems: 'center', }
 
   const headerStyle = {
     margin: "auto",
-    marginTop: 2,
-    marginBottom: 1,
-    width: 0.5,
-    height: 100
+    marginTop: 3,
+    marginBottom: 0,
+    width: 1,
+    height: 1
   }
   return (
     <div>
@@ -38,10 +40,9 @@ const FormPageC = ({ formData, updateFormData}) => {
         >
         <div>
           <Typography sx={headerStyle} variant='h3' fontFamily={'Montserrat'} >Are you happy?</Typography>
-          <Typography sx={headerStyle} variant='h4' fontFamily={'Montserrat'} >Keep it simple - listen to you heart.</Typography>
         </div>
         <Box sx={boxStyle}>
-          <Typography variant='h6' fontFamily={'Montserrat'} gutterBottom>Happiness check</Typography>
+          <Typography variant='h6' fontFamily={'Montserrat'} gutterBottom>Keep it simple - listen to your heart.</Typography>
           <Box sx={sliderStyle}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Happy?</InputLabel>

@@ -2,13 +2,17 @@ import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Box } from '@mui/material';
 import { Typography } from '@mui/material';
-import { PuffLoader } from 'react-spinners';
+import { GridLoader } from 'react-spinners';
+import "../../styles/global.css";
 
 import { OpenAI } from 'openai';
 
 const openai = new OpenAI({apiKey: process.env.REACT_APP_API_KEY, dangerouslyAllowBrowser: true});
 
+
+
 const Results = ({results, showBegin}) => {
+
   const navigate = useNavigate();
   const navigateToHome = () => {
     showBegin();
@@ -45,29 +49,25 @@ const Results = ({results, showBegin}) => {
 
   var final_prompt = prompt + prompt_options[help_wanted];
 
-  useEffect(() => {
 
-    const intervalId = setInterval(() => {
-      console.log("Mounted Results Page");
-    }, 1000);
-  
+
+  useEffect(() => {
     getOpenAIResult(final_prompt);
-    // Cleanup the interval on component unmount to avoid memory leaks
-    return () => clearInterval(intervalId);
-    
-  }, []);
+    return;
+  });
 
 
   //Do the GPT API Call here
   async function getOpenAIResult(prompt) {
     try {
-      console.log("Getting GPT")
+      console.log("Getting...")
       const completion = await openai.chat.completions.create({
         messages: [{ role: "system", content: prompt }],
         model: "gpt-3.5-turbo",
       });
 
       if (completion) {
+        console.log("Completed")
         setFinalRes(completion.choices[0].message.content);
         setIsLoading(false);
       }
@@ -81,13 +81,10 @@ const Results = ({results, showBegin}) => {
     }
   }
 
-  
-
-
-  //Get the results
-
   const resultHeaderStyle ={
-    margin: 6,
+    margin: "auto",
+    marginTop: "1rem",
+    marginBottom: "1rem",
     width: "100vw",
     display : "block",
     justifyContent: 'center',
@@ -96,11 +93,19 @@ const Results = ({results, showBegin}) => {
 
   const resultStyle ={
     margin: "auto",
-    display : "block",
-    width: "100vw",
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 5
+    marginBottom: "1rem",
+    width: "80vw",
+    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)', // light shadow for a hovering effect
+    borderRadius: '20px', // rounded corners
+    padding: '1rem',
+    display: 'flex',
+    alignItems: 'center', // vertically center the text
+    justifyContent: 'center', // horizontally center the text
+    transition: 'transform 0.3s ease-in-out, boxShadow 0.3s ease-in-out',
+    '&:hover': {
+      transform: 'translateY(-10px)', // move the card up by 10px on hover
+      boxShadow: '0 6px 16px rgba(0, 0, 0, 1)' // increase the shadow to emphasize the hover
+    }
   }
 
   const typographyStyle = {
@@ -113,30 +118,33 @@ const Results = ({results, showBegin}) => {
   const loaderStyle = {
     display : "flex",
     position: "absolute",
-    height: "80vh",
+    top: 0,
+    height: "100vh",
     width: "100vw",
     justifyContent: 'center',
     alignItems: 'center',
+    transform: 'scale(2)'
   }
 
   const homeBtnStyle = {
     backgroundColor: "#919e97fa",
     opacity: 0.85,
+    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
     transition: 'transform 0.5s ease-in-out',
     '&:hover': {
+      transform: 'translateY(-10px)', // move the card up by 10px on hover
+      boxShadow: '0 6px 16px rgba(0, 0, 0, 0.2)' ,
       opacity: 1,
-      transform: 'scale(1.3)',
-      transition: 'transform 0.5s ease-in-out',
       backgroundColor: '#919e97fa',
-      boxShadow: 'none',
     },
     borderRadius: 15,
     color: "black",
-    width: 300,
-    height: 100
+    width: "20rem",
+    height: "6rem"
   }
 
   const btnContStyle = {
+    marginTop: "3rem",
     width: "100vw",
     position: "relative",
     bottom: 0
@@ -145,21 +153,21 @@ const Results = ({results, showBegin}) => {
   return (
     <div>
       <div>
-        
-        <Typography variant="h4" sx={resultHeaderStyle} fontFamily={"montserrat"} >"Knowing yourself is the beginning of all wisdom."</Typography>
+        <Typography variant="h3" sx={resultHeaderStyle} fontFamily={"montserrat"} >"Knowing yourself is the beginning of all wisdom."</Typography>
         <Typography variant="h5" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>- Aristotle.</Typography>
         <Box sx={loaderStyle}>
-          <PuffLoader loading={isLoading} />
+          <GridLoader loading={isLoading} color="#545251" />
         </Box>
         <Box sx={resultHeaderStyle}>
           {!isLoading && finalRes ? <Typography variant="h5" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>Hello {results.first_name ? <span>{results.first_name}</span> : <span>friend</span>}, thank you for waiting.</Typography> : null}
         </Box>
-        <Box className='results-chat-reply' sx={resultStyle}>
+        
+        <Box display={(finalRes || hasError) && !isLoading} sx={resultStyle}>
           {hasError ? <Typography variant="h5" sx={resultHeaderStyle} fontFamily={"montserrat"} gutterBottom>There seems to be an error with our service, our engineers are working on it.</Typography> : null}
           <Typography sx={typographyStyle} fontSize={14} fontFamily={"montserrat"} >{finalRes ? finalRes : null }</Typography>
         </Box>
         <Box sx={btnContStyle}>
-          {!isLoading && finalRes ? <Button sx={homeBtnStyle} onClick={navigateToHome}><Typography sx={resultStyle} fontSize={20} fontFamily={"montserrat"} >Return Home</Typography></Button> : null}
+          {!isLoading && (finalRes || hasError) ? <Button sx={homeBtnStyle} onClick={navigateToHome}><Typography fontSize={24} fontFamily={"montserrat"} >Return Home</Typography></Button> : null}
         </Box>
         
       </div>

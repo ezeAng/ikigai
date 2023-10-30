@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Typography } from '@mui/material';
 import TagsInput from 'react-tagsinput';
 import '../../styles/global.css';
@@ -7,8 +7,7 @@ import '../../styles/global.css';
 const FormPageD = ({ formData, updateFormData}) => {
   const headerStyle = {
     margin: "auto",
-    marginTop: 2,
-    marginBottom: 1,
+    marginTop: 1,
     width: 0.5,
     height: 100
   }
@@ -30,9 +29,8 @@ const FormPageD = ({ formData, updateFormData}) => {
         >
           <div>
             <Typography sx={headerStyle} variant='h3' fontFamily={'Montserrat'} >What are you good at?</Typography>
-            <Typography sx={headerStyle} variant='h4' fontFamily={'Montserrat'} >What skills do you have?</Typography>
           </div>
-          <Typography gutterBottom variant='h6' fontFamily={'Montserrat'} >Type them in below</Typography>
+          <Typography gutterBottom variant='h6' fontFamily={'Montserrat'} >What skills do you have? Type them in below</Typography>
           <TagsInput maxTags={15} className='react-tagsinput' value={formData['skills']} onChange={handleChange} />
         </motion.div>
         
