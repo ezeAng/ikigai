@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Box } from '@mui/material';
 import { Typography } from '@mui/material';
 import { GridLoader } from 'react-spinners';
-import { generalStyles, loaderStyle, resultHeaderStyle, resultStyle, typographyStyle, btnContStyle, homeBtnStyle } from '../../styles/style';
+import { generalStyles, loaderStyle, resultHeaderStyle, resultStyle, typographyStyle, btnContStyle, homeBtnStyle } from '../../styles/style.js';
 import { OpenAI } from 'openai';
 
 const openai = new OpenAI({apiKey: process.env.REACT_APP_API_KEY, dangerouslyAllowBrowser: true});

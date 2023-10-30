@@ -14,7 +14,7 @@ import { Button, Typography } from '@mui/material';
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import { generalStyles, headerStyle, beginBtnStyle } from './styles/style';
+import { generalStyles, headerStyle, beginBtnStyle } from './styles/style.js';
 
 
 function App() {
