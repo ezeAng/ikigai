@@ -42,18 +42,20 @@ const Results = ({results, showBegin}) => {
   In other words, find my Ikigai based on what are the in demand industries and trends.`;
 
   const prompt_options = {
-    0 : `After which, tell me 5 possible career paths I can take. Respond simply in the tone of a counsellor or yoga instructor, in less than 100 words.`,
-    1 : `After which, tell me 5 possible steps I can take. Respond simply in the tone of a counsellor or yoga instructor, in less than 100 words.`
+    0 : `After which, tell me 5 possible career paths I can take. `,
+    1 : `After which, tell me 5 possible steps I can take. `
   };
 
-  var final_prompt = prompt + prompt_options[help_wanted];
+  const tone = "Respond simply in the tone of a counsellor or yoga instructor, in less than 100 words.";
+
+  var final_prompt = prompt + prompt_options[help_wanted] + tone;
 
 
 
   useEffect(() => {
     getOpenAIResult(final_prompt);
     return;
-  });
+  },[]);
 
 
   //Do the GPT API Call here
